@@ -1,0 +1,16 @@
+==================================================
+            RESULTS SUMMARY
+==================================================
+Name                 |  Avg  | Grade | Comment
+------------------------------------------------------------
+Arun                 |  84.3 |   B   | Very Good! You're doing well.
+Divya                |  91.7 |   A   | Excellent! Keep up the great work!
+Karthik              |  61.0 |   D   | Needs Improvement. Please study more.
+
+==================================================
+          CLASS STATISTICS
+==================================================
+Total Students: 3
+Class Average: 79.0
+Highest Average: 91.7 (Divya)
+Lowest Average: 61.0 (Karthik)
