@@ -1,0 +1,10 @@
+{
+    "John": {
+        "phone": "12345678910",
+        "email": null,
+        "address": "102, San fransico , US",
+        "group": "Friends",
+        "created_at": "2026-01-17T08:45:27.862216",
+        "updated_at": "2026-01-17T08:45:27.862788"
+    }
+}
