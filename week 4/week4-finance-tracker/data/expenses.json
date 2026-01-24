@@ -1,0 +1,9 @@
+[
+    {
+        "date": "2026-01-12",
+        "amount": 120000.0,
+        "category": "Gaming",
+        "description": "Won Esports Tournamnet",
+        "recurring": false
+    }
+]
