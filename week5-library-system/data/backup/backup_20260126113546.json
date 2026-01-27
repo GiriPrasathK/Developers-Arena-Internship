@@ -1,0 +1,21 @@
+{
+    "books": {
+        "1346454": {
+            "title": "Alan Wake",
+            "author": "Thomas Zane",
+            "isbn": "1346454",
+            "year": "2010",
+            "available": false,
+            "due_date": "2026-02-09T11:35:41.508374"
+        }
+    },
+    "members": {
+        "1": {
+            "name": "Ziggy",
+            "member_id": "1",
+            "borrowed_books": [
+                "1346454"
+            ]
+        }
+    }
+}

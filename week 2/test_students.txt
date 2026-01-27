@@ -1,13 +1,9 @@
-3
-Arun
+Ravi
 85
 78
-90
-Divya
 92
+
+Anita
+90
 88
 95
-Karthik
-60
-65
-58
