@@ -1,53 +1,53 @@
 # Giriprasath K
-# Project : Create a simple Python program to store personal information of the user.
+# Project: Personal Information Manager
+# Description: A simple Python program to store and display personal information
 
-# Welcome Message
-
-print('='*40)
+# ---------------- Welcome Message ----------------
+print("=" * 40)
 print("     Personal Information Manager")
-print('='*40)
+print("=" * 40)
 print()
 
-# Store Static info
-name="Giriprasath K" #name of the user
-age=22               #age of the user
-city="Ratnagiri"     #city of the user
-hobby="Cricket , Football"  #Hobby of the user
+# ---------------- Static Information ----------------
+user_name = "Giriprasath K"        # User's full name
+user_age = 22                      # User's age in years
+user_city = "Ratnagiri"            # City of residence
+user_hobbies = "Cricket, Football"  # User hobbies
 
-# Get user input
+# ---------------- User Input Section ----------------
 print("Please tell me about yourself:")
-print('-'*40)
+print("-" * 40)
 
-favorite_food = input("What's your favorite food? ")
-while favorite_food == "":
+favorite_food = input("What's your favorite food? ").strip()
+while not favorite_food:
     print("Please enter a valid food!")
-    favorite_food = input("What's your favorite food? ")
+    favorite_food = input("What's your favorite food? ").strip()
 
-favorite_color = input("What's your favorite color? ")
-while favorite_color == "":
+favorite_color = input("What's your favorite color? ").strip()
+while not favorite_color:
     print("Please enter a valid color!")
-    favorite_color = input("What's your favorite color? ")
+    favorite_color = input("What's your favorite color? ").strip()
 
-# Calculate age in months
-age_in_months = age * 12
+# ---------------- Calculations ----------------
+age_in_months = user_age * 12
 
-# Display all information
+# ---------------- Display Information ----------------
 print()
 print("=" * 40)
 print("        YOUR INFORMATION")
 print("=" * 40)
 print()
 
-print(f"Name: {name}")
-print(f"Age: {age} years ({age_in_months} months old)")
-print(f"City: {city}")
-print(f"Hobby: {hobby}")
+print(f"Name           : {user_name}")
+print(f"Age            : {user_age} years ({age_in_months} months)")
+print(f"City           : {user_city}")
+print(f"Hobbies        : {user_hobbies}")
 print()
-print(f"Favorite Food: {favorite_food}")
-print(f"Favorite Color: {favorite_color}")
+print(f"Favorite Food  : {favorite_food.title()}")
+print(f"Favorite Color : {favorite_color.title()}")
 print()
 
-# Goodbye message
+# ---------------- Goodbye Message ----------------
 print("=" * 40)
 print("Thanks for using this program!")
 print("=" * 40)
