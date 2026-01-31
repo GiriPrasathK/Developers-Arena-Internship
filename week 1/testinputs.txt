@@ -1,0 +1,17 @@
+
+---
+
+
+
+```txt
+Test Case 1:
+Favorite food: Pizza
+Favorite color: Blue
+
+Test Case 2:
+Favorite food:Burrito
+Favorite color:Black
+
+Test Case 3:
+Favorite food: Pasta Alfredo
+Favorite color: Green
