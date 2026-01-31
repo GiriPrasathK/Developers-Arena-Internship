@@ -1,0 +1,17 @@
+
+---
+
+## 🧪 `test_inputs.txt` (Shows Testing & Edge Cases)
+
+```txt
+Test Case 1:
+Favorite food: Pizza
+Favorite color: Blue
+
+Test Case 2:
+Favorite food:Burger
+Favorite color:Red
+
+Test Case 3:
+Favorite food: Lasgnia with Italian sauces
+Favorite color: Green
