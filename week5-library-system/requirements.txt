@@ -1,1 +1,2 @@
-pytest
+# No external dependencies required for this project
+# All functionalities are implemented using Python's standard library
