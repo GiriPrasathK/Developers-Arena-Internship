@@ -1,9 +1,16 @@
-Ravi
-85
-78
-92
+
+---
+
+## 🧪 `test_students.txt`
+
+```txt
+Students: 3
+
+Rahul
+78 82 80
 
 Anita
-90
-88
-95
+91 94 89
+
+Karan
+55 60 58

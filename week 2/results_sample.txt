@@ -1,2 +1,3 @@
-Ravi, 85.0, B, Very good work 👍
-Anita, 91.0, A, Excellent performance 🌟
+Rahul, [78, 82, 80], 80.00, B, Very good work.
+Anita, [91, 94, 89], 91.33, A, Excellent performance!
+Karan, [55, 60, 58], 57.67, F, Poor performance. Needs serious improvement.

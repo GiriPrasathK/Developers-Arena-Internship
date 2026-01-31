@@ -1,96 +1,148 @@
-# --------------------------------------------------
-# Student Grade Calculator
-# Author: Your Name
-# Description: Calculates grades, comments, and
-# statistics for multiple students
-# --------------------------------------------------
+# Name: Giriprasath K
+# Project: Student Grade Calculator
+# Description:
+# A Python program that collects student marks, calculates averages,
+# assigns grades with comments, stores results using lists,
+# displays statistics, and saves data to a file.
+
+# -------------------------------
+# Grade & Comment Functions
+# -------------------------------
 
 def calculate_grade(avg):
-    if avg >= 90:
+    if 90 <= avg <= 100:
         return "A"
-    elif avg >= 80:
+    elif 80 <= avg < 90:
         return "B"
-    elif avg >= 70:
+    elif 70 <= avg < 80:
         return "C"
-    elif avg >= 60:
+    elif 60 <= avg < 70:
         return "D"
     else:
         return "F"
 
 
 def grade_comment(grade):
-    comments = {
-        "A": "Excellent performance 🌟",
-        "B": "Very good work 👍",
-        "C": "Good effort 🙂",
-        "D": "Needs improvement ⚠️",
-        "F": "Fail – work harder ❌"
-    }
-    return comments.get(grade, "")
+    if grade == "A":
+        return "Excellent performance!"
+    elif grade == "B":
+        return "Very good work."
+    elif grade == "C":
+        return "Good, but can improve."
+    elif grade == "D":
+        return "Needs more effort."
+    else:
+        return "Poor performance. Needs serious improvement."
 
 
-def get_valid_marks(subject):
+# -------------------------------
+# Input Validation Helpers
+# -------------------------------
+
+def get_valid_number(prompt):
     while True:
         try:
-            marks = float(input(f"Enter marks for {subject} (0-100): "))
-            if 0 <= marks <= 100:
-                return marks
+            value = int(input(prompt))
+            if value > 0:
+                return value
             else:
-                print("Marks must be between 0 and 100.")
+                print("❌ Enter a positive number.")
         except ValueError:
-            print("Invalid input. Enter a number.")
+            print("❌ Invalid input. Enter a number.")
 
 
-def main():
-    students = []
-    results = []
-
+def get_valid_mark(subject):
     while True:
         try:
-            n = int(input("Enter number of students: "))
-            if n > 0:
-                break
+            mark = float(input(f"Enter marks for {subject} (0-100): "))
+            if 0 <= mark <= 100:
+                return mark
             else:
-                print("Number must be positive.")
+                print("❌ Marks must be between 0 and 100.")
         except ValueError:
-            print("Invalid input.")
+            print("❌ Invalid input. Enter numeric marks.")
 
-    for i in range(n):
-        print(f"\nStudent {i + 1}")
-        name = input("Enter student name: ")
 
-        m1 = get_valid_marks("Subject 1")
-        m2 = get_valid_marks("Subject 2")
-        m3 = get_valid_marks("Subject 3")
+# -------------------------------
+# Main Program
+# -------------------------------
 
-        avg = round((m1 + m2 + m3) / 3, 2)
-        grade = calculate_grade(avg)
-        comment = grade_comment(grade)
+print("=" * 60)
+print("WELCOME TO STUDENT GRADE CALCULATOR")
+print("=" * 60)
 
-        students.append(name)
-        results.append([name, avg, grade, comment])
+num_students = get_valid_number("Enter number of students: ")
 
-    averages = [r[1] for r in results]
+students = []
+results = []
 
-    print("\n📊 STUDENT RESULTS")
-    print("-" * 60)
-    print(f"{'Name':<15}{'Average':<10}{'Grade':<10}Comment")
-    print("-" * 60)
+# -------------------------------
+# Collect Student Data
+# -------------------------------
 
+for i in range(num_students):
+    print(f"\n--- Student {i + 1} ---")
+    name = input("Enter student name: ").strip().title()
+
+    marks = []
+    for subject in ["Subject 1", "Subject 2", "Subject 3"]:
+        marks.append(get_valid_mark(subject))
+
+    average = sum(marks) / len(marks)
+    grade = calculate_grade(average)
+    comment = grade_comment(grade)
+
+    students.append(name)
+    results.append([name, marks, average, grade, comment])
+
+# -------------------------------
+# Class Statistics
+# -------------------------------
+
+averages = [student[2] for student in results]
+class_avg = sum(averages) / len(averages)
+highest = max(averages)
+lowest = min(averages)
+
+# -------------------------------
+# Display Results Table
+# -------------------------------
+
+print("\n" + "=" * 90)
+print(f"{'Name':<15}{'Marks':<25}{'Average':<10}{'Grade':<8}Comment")
+print("=" * 90)
+
+for r in results:
+    print(f"{r[0]:<15}{str(r[1]):<25}{r[2]:<10.2f}{r[3]:<8}{r[4]}")
+
+print("=" * 90)
+print(f"Class Average : {class_avg:.2f}")
+print(f"Highest Avg   : {highest:.2f}")
+print(f"Lowest Avg    : {lowest:.2f}")
+print("=" * 90)
+
+# -------------------------------
+# Search Feature
+# -------------------------------
+
+search = input("\nSearch for a student by name (or press Enter to skip): ").strip().title()
+if search:
+    found = False
     for r in results:
-        print(f"{r[0]:<15}{r[1]:<10}{r[2]:<10}{r[3]}")
+        if r[0] == search:
+            print(f"\nResult for {search}: Avg={r[2]:.2f}, Grade={r[3]}, Comment={r[4]}")
+            found = True
+            break
+    if not found:
+        print("❌ Student not found.")
 
-    print("\n📈 CLASS STATISTICS")
-    print(f"Class Average: {round(sum(averages)/len(averages), 2)}")
-    print(f"Highest Average: {max(averages)}")
-    print(f"Lowest Average: {min(averages)}")
+# -------------------------------
+# Save Results to File
+# -------------------------------
 
-    with open("results_sample.txt", "w") as file:
-        for r in results:
-            file.write(f"{r[0]}, {r[1]}, {r[2]}, {r[3]}\n")
+with open("results.txt", "w") as file:
+    for r in results:
+        file.write(f"{r[0]}, {r[1]}, {r[2]:.2f}, {r[3]}, {r[4]}\n")
 
-    print("\nResults saved to results_sample.txt")
-
-
-if __name__ == "__main__":
-    main()
+print("\n✅ Results saved to results.txt")
+print("Thank you for using the Grade Calculator!")
